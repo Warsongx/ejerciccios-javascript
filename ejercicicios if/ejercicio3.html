@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de Ascensor y Temperatura</title>
+    <script>
+        function simularAscensor() {
+            let temperatura = parseFloat(prompt("Ingrese la temperatura(en °C):"));
+            let temperaturaMin = 18;
+            let temperaturaMax = 30;
+            if (temperatura >= temperaturaMin && temperatura <= temperaturaMax) {
+                let piso = parseInt(prompt("Ingrese el piso al que desea ir (1-10):"));
+                if (piso >= 1 && piso <= 10) {
+                    console.log(`Temperatura aceptable (${temperatura}°C). Moviendo el ascensor al piso ${piso}...`);
+                } else {
+                    console.log("Piso no válido. El ascensor no se moverá.");
+                }
+            } else {
+                console.log(`Temperatura no adecuada (${temperatura}°C). El ascensor no se moverá.`);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Ejercicio de Ascensor con Control de Temperatura</h1>
+    <button onclick="simularAscensor()">Iniciar prueba</button>
+</body>
+</html>

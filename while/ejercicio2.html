@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Cajero Automático</title>
+    <script>
+        function ejecutarCajero() {
+            let saldoDisponible = parseFloat(prompt("Ingrese el saldo disponible en su cuenta:"));
+            if (isNaN(saldoDisponible) || saldoDisponible <= 0) {
+                alert("Por favor, ingrese un saldo inicial válido.");
+                return; 
+            }
+            alert(`Su saldo disponible es: $${saldoDisponible}`);
+            while (true) {
+                let montoRetiro = parseFloat(prompt("Ingrese el monto que desea retirar o escriba 0 para cancelar:"));
+                if (montoRetiro === 0) {
+                    alert("Operación cancelada.");
+                    break;
+                }
+                if (isNaN(montoRetiro) || montoRetiro <= 0) {
+                    alert("Por favor, ingrese un monto válido.");
+                    continue;
+                }
+                if (montoRetiro > saldoDisponible) {
+                    alert("Error: El monto excede el saldo disponible.");
+                } else {
+                    saldoDisponible -= montoRetiro;
+                    alert(`Retiro exitoso. Su saldo restante es: $${saldoDisponible}`);
+                    if (saldoDisponible <= 0) {
+                        alert("No tiene saldo suficiente para realizar más retiros.");
+                        break;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Simulación de Cajero Automático</h1>
+    <button onclick="ejecutarCajero()">Iniciar</button>
+</body>
+</html>

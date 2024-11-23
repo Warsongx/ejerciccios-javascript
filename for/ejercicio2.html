@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Contactos</title>
+    <script>
+        function agendaContactos() {
+            let numeroContactos = parseInt(prompt("¿Cuántos contactos desea agregar?"));
+            let nombres = [];
+            let telefonos = [];
+            for (let i = 0; i < numeroContactos; i++) {
+                let nombre = prompt(`Ingrese el nombre del contacto ${i + 1}:`);
+                let telefono = prompt(`Ingrese el número de teléfono de ${nombre}:`);
+                nombres.push(nombre);
+                telefonos.push(telefono);
+            }
+            let resumen = "Lista de contactos registrados:\n";
+            for (let i = 0; i < numeroContactos; i++) {
+                resumen += `Contacto ${i + 1}: Nombre: ${nombres[i]}, Teléfono: ${telefonos[i]}\n`;
+            }
+            alert(resumen);
+        }
+    </script>
+</head>
+<body>
+    <h1>Agenda de Contactos</h1>
+    <button onclick="agendaContactos()">Agregar Contactos</button>
+</body>
+</html>

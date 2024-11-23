@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú del Restaurante</title>
+</head>
+<body>
+    <h1>Bienvenido al Restaurante</h1>
+    <button onclick="menuRestaurante()">Abrir Menú</button>
+
+    <script>
+        function menuRestaurante() {
+            const platos = {
+                "Pinchos": 14,
+                "Hamburguesa": 12,
+                "Arroz": 9,
+                "Sopa": 4,
+                "Carne": 16
+            };
+            const bebidas = {
+                "Agua": 3,
+                "Refresco": 3,
+                "Cerveza": 8,
+                "Te": 9
+            };
+            let total = 0;
+            let platosSeleccionados = [];
+            let agregarPlato;
+            do {
+                agregarPlato = prompt("Selecciona un plato (Pinchos Hamburguesa, Arroz, Sopa, Carne) o escribe 'fin' para terminar:");
+                switch (agregarPlato) {
+                    case "Pinchis":
+                    case "Hamburguesa":
+                    case "Arroz":
+                    case "Sopa":
+                    case "Carne":
+                        platosSeleccionados.push(agregarPlato);
+                        total += platos[agregarPlato];
+                        break;
+                    case "fin":
+                        break;
+                    default:
+                        console.log("Plato no válido. Intenta de nuevo.");
+                }
+            } while (agregarPlato !== "fin");
+            let bebidasSeleccionadas = [];
+            let agregarBebida;
+            do {
+                agregarBebida = prompt("Selecciona una bebida (Agua, Refresco, Cerveza, Te) o escribe 'fin' para terminar:");
+                switch (agregarBebida) {
+                    case "Agua":
+                    case "Refresco":
+                    case "Cerveza":
+                    case "Te":
+                        bebidasSeleccionadas.push(agregarBebida);
+                        total += bebidas[agregarBebida];
+                        break;
+                    case "fin":
+                        break;
+                    default:
+                        console.log("Bebida no válida. Intenta de nuevo.");
+                }
+            } while (agregarBebida !== "fin");
+            let metodoPago = prompt("Selecciona un método de pago (efectivo, tarjeta, cheque):").toLowerCase();
+            switch (metodoPago) {
+                case "efectivo":
+                    total *= 0.9; 
+                    break;
+                case "tarjeta":
+                    total *= 0.95;
+                    break;
+                case "cheque":
+                    break;
+                default:
+                    console.log("Método de pago no válido. No se aplicará descuento.");
+            }
+            console.log(`Platos seleccionados: ${platosSeleccionados.join(", ")}`);
+            console.log(`Bebidas seleccionadas: ${bebidasSeleccionadas.join(", ")}`);
+            console.log(`Costo total: $${total.toFixed(2)}`);
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tareas</title>
+    <script>
+        function gestionarTareas() {
+            let tareas = ""; 
+            let continuar; 
+
+            do {
+                let descripcion = prompt("Ingrese la descripción:");
+                let fechaVencimiento = prompt("Ingrese la fecha de vencimiento (DD/MM/AAAA):");
+                tareas += `Tarea: ${descripcion}, Fecha de Vencimiento: ${fechaVencimiento}\n`;
+                continuar = prompt("¿Desea agregar otra tarea? (sí/no)").toLowerCase();
+            } while (continuar === "sí" || continuar === "si"); 
+            if (tareas) {
+                alert("Tareas registradas:\n" + tareas);
+            } else {
+                alert("No se registraron tareas.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Gestión de Tareas</h1>
+    <button onclick="gestionarTareas()">Iniciar Gestión</button>
+</body>
+</html>

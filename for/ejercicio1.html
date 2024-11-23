@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Vehículos en el Parqueadero</title>
+    <script>
+        function registrarVehiculos() {
+            let numVehiculos = parseInt(prompt("Ingrese el número de vehículos que ingresarán al parqueadero:"));
+            let placas = [];
+            let horasIngreso = [];
+            for (let i = 0; i < numVehiculos; i++) {
+                let placa = prompt(`Ingrese la placa del vehículo ${i + 1}:`);
+                let hora = new Date().toLocaleTimeString(); 
+                placas.push(placa);
+                horasIngreso.push(hora);
+            }
+            let resumen = "Vehículos registrados:\n";
+            for (let i = 0; i < numVehiculos; i++) {
+                resumen += `Vehículo ${i + 1}: Placa: ${placas[i]}, Hora de ingreso: ${horasIngreso[i]}\n`;
+            }
+            alert(resumen);
+        }
+    </script>
+</head>
+<body>
+    <h1>Registro de Vehículos</h1>
+    <button onclick="registrarVehiculos()">Registrar Vehículos</button>
+</body>
+</html>

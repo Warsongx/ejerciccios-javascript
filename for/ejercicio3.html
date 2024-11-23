@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas en Tienda</title>
+    <script>
+        function registrarVentas() {
+            let numProductos = parseInt(prompt("¿Cuántos productos se han vendido?"));
+            let productos = [];
+            let totalVentas = 0;
+            for (let i = 0; i < numProductos; i++) {
+                let nombreProducto = prompt(`Ingrese el nombre del producto ${i + 1}:`);
+                let precioProducto = parseFloat(prompt(`Ingrese el precio de ${nombreProducto}:`));
+                let cantidadVendida = parseInt(prompt(`Ingrese la cantidad vendida de ${nombreProducto}:`));
+                let totalProducto = precioProducto * cantidadVendida;
+                totalVentas += totalProducto;
+                productos.push({
+                    nombre: nombreProducto,
+                    precio: precioProducto,
+                    cantidad: cantidadVendida,
+                    total: totalProducto
+                });
+            }
+            let resumen = "Resumen de ventas:\n";
+            for (let i = 0; i < productos.length; i++) {
+                resumen += `Producto ${i + 1}: ${productos[i].nombre}, Precio: $${productos[i].precio}, Cantidad vendida: ${productos[i].cantidad}, Total: $${productos[i].total.toFixed(2)}\n`;
+            }
+            resumen += `\nTotal de ventas: $${totalVentas.toFixed(2)}`;
+            alert(resumen);
+        }
+    </script>
+</head>
+<body>
+    <h1>Registro de Ventas en la Tienda</h1>
+    <button onclick="registrarVentas()">Registrar Ventas</button>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Descuento</title>
+    <script>
+        function calcularDescuento() {
+            let montoCompra = parseFloat(prompt("Ingrese el monto total:"));
+            let descuento = 0;
+            if (montoCompra >= 1000) {
+                descuento = 0.10; 
+            } else if (montoCompra >= 500) {
+                descuento = 0.05; 
+            }
+            let montoFinal = montoCompra - (montoCompra * descuento);
+            console.log(`Monto original: $${montoCompra}`);
+            console.log(`Descuento aplicado: ${descuento * 100}%`);
+            console.log(`Monto final con descuento: $${montoFinal.toFixed(2)}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>calcular descuentos</h1>
+    <button onclick="calcularDescuento()">Calcular Descuento</button>
+</body>
+</html>
